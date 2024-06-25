@@ -33,17 +33,17 @@
                     Em qualquer pasta do seu computador, de preferencia uma pasta que não possua caracteres especiais.
                 </p>
                 <p>Em seguida abra o git bash e digite o código a seguir:</p>
-                <pre><code>git clone https://github.com/Lucas-Dreveck/ProjetoFinalDocker</code></pre>
+                <pre><code>git clone  https://github.com/gabrielscostaa/ProjetoDockerWP.git</code></pre>
             </li>
             <li>
                 Com o projeto clonado em sua máquina, acesse a pasta do projeto:
-                <pre><code>cd ProjetoFinalDocker</code></pre>
+                <pre><code>cd ProjetoDockerWP</code></pre>
             </li>
         </ol>
     </div>
     <hr/>
     <div>
-        <h2>Passo 3: Executar o projeto</h2>
+        <h2>Passo 3: Executar o projeto ProjetoDockerWP</h2>
         <ol>
             <li>
                 Agora vamos iniciar nosso Docker Swarm para podermos iniciar o projeto projeto:
