@@ -1,16 +1,54 @@
 # ProjetoDockerWP
 
-<body style="text-align: justify">
-    <h1>Como rodar o projeto:</h1>
+<body>
+    <h2>Projeto Final de Docker com Docker Swarm e suas Ferramentas<h2></h2>
+<p>
+Nosso projeto final utiliza Docker Swarm para orquestração de contêineres, garantindo escalabilidade e alta disponibilidade. Aqui estão as principais ferramentas integradas e suas funções:
+
+Docker Swarm:
+
+Utilizado para gerenciar e escalonar contêineres Docker em um cluster.
+Permite a criação de serviços distribuídos e replicados para garantir alta disponibilidade de aplicações.
+
+Prometheus:
+
+Ferramenta de monitoramento e alerta que coleta métricas numéricas de sistemas e serviços.
+Utilizado para registrar e visualizar métricas de desempenho, como uso de CPU, memória e tráfego de rede.
+
+Grafana:
+
+Plataforma de análise e monitoramento que permite criar dashboards e gráficos interativos.
+Integrado com Prometheus para visualizar dados em tempo real e históricos de métricas.
+
+Cadvisor:
+
+Coletor de métricas para contêineres Docker, monitorando uso de recursos e desempenho.
+Oferece insights detalhados sobre os contêineres em execução, facilitando a análise e otimização de recursos.
+
+Redis:
+
+Banco de dados em memória utilizado como cache para consultas rápidas e armazenamento temporário.
+Integração com Wordpress através do plugin Redis Object Cache para melhorar o desempenho e a escalabilidade.
+
+MySQL:
+
+Sistema de gerenciamento de banco de dados relacional usado para armazenar dados persistentes.
+Integrado com Prometheus através do mysql-exporter para monitoramento detalhado do desempenho do banco de dados.
+
+Objetivo do Projeto:
+
+Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas as partes essenciais de uma aplicação web moderna. Utilizando Prometheus, Grafana, Cadvisor, Redis e MySQL, garantimos monitoramento eficaz, escalabilidade automática e alta disponibilidade. Isso permite que nossa aplicação seja dimensionada conforme necessário e mantida com alto desempenho e eficiência operacional.</p>
+
+<body>
+    <h1> Rodando o Projeto na pratica passo a passo:</h1>
     <div>
         <h2>Passo 1: Configurando o ambiente</h2>
         <ol>
-            <li><p>Tenha (ou instale) o docker em sua máquina.</p></li>
+            <li><p>Tenha o docker em sua máquina.</p></li>
             <li>
                 <p>
-                    Certifique-se que as portas que vão ser utilizadas no projeto estejam disponiveis para uso, caso não modifique-as.
+                    Verifique as portas que vão ser utilizadas no projeto estejam disponiveis.
                 </p>
-                <p style="margin-left: 20px">São elas:</p>
                 <ul>
                     <li>9104 : mysql-exporter</li>
                     <li>6379 : redis</li>
@@ -25,12 +63,12 @@
     <hr/>
     <div>
         <h2>
-            Passo 2: Clonar e acessar repositório do projeto
+            Passo 2: Começe Clonando e acessando a pasta do repositorio:
         </h2>
         <ol>
             <li>
                 <p>
-                    Em qualquer pasta do seu computador, de preferencia uma pasta que não possua caracteres especiais.
+                    Em qualquer pasta do seu computador.
                 </p>
                 <p>Em seguida abra o git bash e digite o código a seguir:</p>
                 <pre><code>git clone  https://github.com/gabrielscostaa/ProjetoDockerWP.git</code></pre>
@@ -47,10 +85,11 @@
         <ol>
             <li>
                 Agora vamos iniciar nosso Docker Swarm para podermos iniciar o projeto projeto:
+                <p>vá no seu terminal e digite:</p>
                 <pre><code>docker swarm init</code></pre>
             </li>
             <li>
-                Em seguida executaremos o comando:
+                Em seguida Escreva o comando e o execute:
                 <pre><code>docker stack deploy -c docker-compose.yml "nome_stack"</code></pre>
                 com este comando vamos iniciar nossos services que estão no arquivo .yml sendo eles:
                 <ul>
@@ -69,6 +108,7 @@
         <h2>Passo 4: Configurar o wordpress</h2>
         <ol>
             <li>Abra seu navegador e acesse o link: <code>http://localhost:8080</code></li>
+            <p>Ou invez do 8080 utilize a porta na qual você escolheu.</p>
             <li>
                 Ao acessar o wordpress, configure-o seguindo suas instruções, Obs: não se preocupe com os dados infomardos, todos são apenas para test.
             </li>
@@ -179,9 +219,8 @@
         </ol>
     </div>
     <div>
-        <h2>Passo Bônus: Cadvisor</h2>
         <ol>
-            <li> Por curiosidade, caso queira olhar os graficos dos containers e do docker podemos acessar o cadvisor pela url <code>http://localhost:8081</code>.
+            <li> Caso queira olhar os graficos dos containers e do docker podemos acessar o cadvisor pela url <code>http://localhost:8081</code>.
         </ol>
     </div>
 </body>
