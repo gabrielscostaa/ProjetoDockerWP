@@ -118,7 +118,7 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             </li>
             <li>
                 Nesta pagina acesse a opção de plugins, você será redirecionado para está pagina onde estão os plugins instalados:
-                <img src="./md/image_wp_plugins.png" />
+                <img src=".md/image_grafana_datasource.png" />
             </li>
             <li>
                 Ao lado da palavra Plugins no topo da pagina você terá a opção de Adicionar plugin, apertando nesse botão você será redirecionado para está pagina:
@@ -126,12 +126,13 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             </li>
             <li>
                 Pesquise na opção de busca o plugin: <code>Redis Object Cache</code>
+                /
                 <img src="./md/image_wp_redis.png"/>
                 Aperte na opção instalar, aguarda instalar e, após a instalação volte para a pagina de <code>Plugins Instalados</code>
             </li>
             <li>
                 Abaixo dos plugins já instalados irá aparecer o Redis Object Cache, selecione a opção de Ativar(também pode aparecer como Configurações), ao acessar essa pagina podemos ver que não podemos nos conectar com o redis:
-                <img src="./md/image_wp_erro_redis.png"/>
+                <img src="../md/image_wp_erro_redis.png"/>
             </li>
         </ol>
     </div>
