@@ -114,25 +114,20 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             </li>
             <li>
                 Finalizando o processo de configuração do worpress você será redirecionado a pagina de administrador:
-                <img src="./md/image_wp_admin.png"/>                  
             </li>
             <li>
                 Nesta pagina acesse a opção de plugins, você será redirecionado para está pagina onde estão os plugins instalados:
-                <img src=".md/image_grafana_datasource.png" />
             </li>
             <li>
                 Ao lado da palavra Plugins no topo da pagina você terá a opção de Adicionar plugin, apertando nesse botão você será redirecionado para está pagina:
-                <img src="./md/image_wp_adicionar_plugin.png"/>
             </li>
             <li>
                 Pesquise na opção de busca o plugin: <code>Redis Object Cache</code>
                 /
-                <img src="./md/image_wp_redis.png"/>
                 Aperte na opção instalar, aguarda instalar e, após a instalação volte para a pagina de <code>Plugins Instalados</code>
             </li>
             <li>
                 Abaixo dos plugins já instalados irá aparecer o Redis Object Cache, selecione a opção de Ativar(também pode aparecer como Configurações), ao acessar essa pagina podemos ver que não podemos nos conectar com o redis:
-                <img src="../md/image_wp_erro_redis.png"/>
             </li>
         </ol>
     </div>
@@ -167,7 +162,6 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             </li>
             <li>
                 Volte para o painel de plugins do wordpress, atualize a pagina apertando "F5" e veja se o Redis apareça como Acessível:
-                <img src="./md/image_wp_redis_acessivel.png"/>
                 Estando assim é só apertar no botão "Ativar o cache de objeto" e o Redis está configurado.
             </li>
         </ol>
@@ -195,11 +189,9 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             </li>
             <li>
                 Utilize o usuario admin e senha admin para entrar.
-                <img src="./md/image_grafana_login.png"/>
             </li>
             <li>
                 Pela dashboard vamos em Connections e iremos acessar a opção "Data sources".
-                <img src="./md/image_grafana_datasource.png"/>
             </li>
             <li>
                 Nessa aba, vamos apertar o botão "Add data source" e vamos buscar pelo Prometheus.
@@ -207,7 +199,6 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             <li>
                 Para configurar o data source do prometheus vamos seleciona-lo na lista abrindo assim suas configurações.
                 Em Connection vamos adicionar a url do servidor do prometheus sendo ela <code>http://prometheus:9090</code>.
-                <img src="./md/image_grafana_prometheus.png"/>
             </li>
             <li>Após adicionar sua url vamos no final da pagina e você ira apertar no botão "Save & test" assim podemos ir para a dashboards.</li>
             <li>Na dashboards do grafana vamos apertar em "Create Dashboard" e em seguida "Add visualization".</li>
@@ -215,7 +206,6 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             <li>Na opção Query, vamos seleiconar a métrica do Prometheus e apertar em run query.</li>
             <li>
                 Assim será gerado um grafico e podemos apertar na opção "Apply" no canto superior direito
-                <img src="./md/image_grafana_setqueries.png"/>
             </li>
         </ol>
     </div>
