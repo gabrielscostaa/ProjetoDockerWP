@@ -4,41 +4,41 @@
     <h2>Projeto Final de Docker com Docker Swarm e suas Ferramentas<h2></h2>
 <p>
 Nosso projeto final utiliza Docker Swarm para orquestração de contêineres, garantindo escalabilidade e alta disponibilidade. Aqui estão as principais ferramentas integradas e suas funções:
-
-Docker Swarm:
+<ul>
+<li>Docker Swarm:</li>
 
 Utilizado para gerenciar e escalonar contêineres Docker em um cluster.
 Permite a criação de serviços distribuídos e replicados para garantir alta disponibilidade de aplicações.
 
-Prometheus:
+<li>Prometheus:</li>
 
 Ferramenta de monitoramento e alerta que coleta métricas numéricas de sistemas e serviços.
 Utilizado para registrar e visualizar métricas de desempenho, como uso de CPU, memória e tráfego de rede.
 
-Grafana:
+<li>Grafana:</li>
 
 Plataforma de análise e monitoramento que permite criar dashboards e gráficos interativos.
-Integrado com Prometheus para visualizar dados em tempo real e históricos de métricas.
+Integrado com Prometheus para visualizar dados em tempo real e históricos de métricas.</li>
 
-Cadvisor:
+<li>Cadvisor:</li>
 
 Coletor de métricas para contêineres Docker, monitorando uso de recursos e desempenho.
 Oferece insights detalhados sobre os contêineres em execução, facilitando a análise e otimização de recursos.
 
-Redis:
+<li>Redis:</li>
 
 Banco de dados em memória utilizado como cache para consultas rápidas e armazenamento temporário.
 Integração com Wordpress através do plugin Redis Object Cache para melhorar o desempenho e a escalabilidade.
 
-MySQL:
+<li>MySQL:</li>
 
 Sistema de gerenciamento de banco de dados relacional usado para armazenar dados persistentes.
 Integrado com Prometheus através do mysql-exporter para monitoramento detalhado do desempenho do banco de dados.
 
-Objetivo do Projeto:
+<li>Objetivo do Projeto:
 
 Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas as partes essenciais de uma aplicação web moderna. Utilizando Prometheus, Grafana, Cadvisor, Redis e MySQL, garantimos monitoramento eficaz, escalabilidade automática e alta disponibilidade. Isso permite que nossa aplicação seja dimensionada conforme necessário e mantida com alto desempenho e eficiência operacional.</p>
-
+</ul>
 <body>
     <h1> Rodando o Projeto na pratica passo a passo:</h1>
     <div>
@@ -59,6 +59,51 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
                 </ul>
             </li>
         </ol>
+        <div>
+        <h2>Verificando as Portas utilizadas</h2>
+            <p>Listar Contêineres Docker em Execução:</p>
+       
+<h7>Execute o seguinte comando para listar todos os contêineres Docker em execução e verificar as portas às quais eles estão associados:</h7>
+
+    docker ps
+
+<li>Este comando mostrará todos os contêineres Docker em execução, juntamente com as informações sobre as portas que estão sendo expostas.</li>
+
+<li>Verificar Portas Específicas:</li>
+
+<li>
+    Para verificar se portas específicas estão sendo utilizadas, você pode filtrar a saída do comando docker ps com base na porta. Por exemplo, para verificar a porta 9104, você pode usar:
+</li>
+
+    docker ps --filter "publish=9104"
+
+<li>
+    Isso mostrará apenas os contêineres que estão expondo a porta 9104.
+</li>
+
+<li>Verificar Portas no Host:</li>
+
+<li>Para verificar se as portas estão sendo utilizadas diretamente no host, você pode usar o comando netstat ou ss:</p>
+
+    sudo netstat -tuln | grep ':9104'
+
+<li>Substitua 9104 pela porta que você deseja verificar. Este comando lista todas as conexões de rede (TCP e UDP) abertas no host e filtra pelo número da porta especificado.</p>
+
+<li>Exemplo de Verificação para a Porta 9104 (MySQL Exporter)</p>
+<li>Para verificar se a porta 9104 está sendo utilizada pelo MySQL Exporter:</p>
+
+    docker ps --filter "publish=9104"
+
+  <p>Se não houver resultados, isso significa que nenhuma instância de contêiner Docker está atualmente utilizando essa porta.</p>
+
+  <p>Repita o Processo para Outras Portas</p>
+  
+  <p>Repita o mesmo processo para as outras portas que você mencionou (6379, 8080, 9090, 3000, 8081). Apenas altere o número da porta no comando conforme necessário.</p>
+  </ol>
+            </li>
+                </p>
+            </div>
+            </ul>
     </div>
     <hr/>
     <div>
@@ -110,25 +155,13 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             <li>Abra seu navegador e acesse o link: <code>http://localhost:8080</code></li>
             <p>Ou invez do 8080 utilize a porta na qual você escolheu.</p>
             <li>
-                Ao acessar o wordpress, configure-o seguindo suas instruções, Obs: não se preocupe com os dados infomardos, todos são apenas para test.
+                Ao acessar o wordpress, configure-o seguindo suas instruções.
             </li>
-            <li>
-                Finalizando o processo de configuração do worpress você será redirecionado a pagina de administrador:
-            </li>
-            <li>
-                Nesta pagina acesse a opção de plugins, você será redirecionado para está pagina onde estão os plugins instalados:
-            </li>
-            <li>
-                Ao lado da palavra Plugins no topo da pagina você terá a opção de Adicionar plugin, apertando nesse botão você será redirecionado para está pagina:
-            </li>
-            <li>
-                Pesquise na opção de busca o plugin: <code>Redis Object Cache</code>
-                /
-                Aperte na opção instalar, aguarda instalar e, após a instalação volte para a pagina de <code>Plugins Instalados</code>
-            </li>
-            <li>
-                Abaixo dos plugins já instalados irá aparecer o Redis Object Cache, selecione a opção de Ativar(também pode aparecer como Configurações), ao acessar essa pagina podemos ver que não podemos nos conectar com o redis:
-            </li>
+         No navegador, acesse localhost:8080/wp-admin. Você verá a página de instalação e configuração do WordPress.
+Acesse o painel de administração em localhost:8080/wp-admin.
+Vá em "Tools", "Site health" e "info", e procure por "database" para ver as configurações do banco de dados.
+Vá em "Plugins" -> "Add New Plugin", procure e instale o plugin "Redis".
+Ative o plugin.
         </ol>
     </div>
     <div>
@@ -143,7 +176,7 @@ Nosso objetivo é configurar um ambiente Docker Swarm robusto que suporte todas 
             </li>
             <li>
                 Em seguida vamos executar os comandos:
-                <pre><code>apt update</code></pre>
+                    <code>apt update</code>
                 <pre><code>apt install nano</code></pre>
                 Vamos atualizar o apt e em seguida baixar o aplicativo nano para que possamos editar o arquivo wp-config.php
             </li>
